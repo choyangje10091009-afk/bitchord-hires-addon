@@ -1,7 +1,7 @@
 {
   "version": 2,
   "routes": [
-    { "src": "/manifest.json", "dest": "/manifest.json" },
+    { "src": "^/manifest\\.json$", "dest": "/manifest.json" },
     { "src": "/(.*)", "dest": "/api/index.js" }
   ]
 }
