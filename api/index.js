@@ -97,7 +97,7 @@ export default async function handler(req, res) {
     return json(res, 200, stream);
   }
 
-  if (path.includes('manifest') || path === '/') {
+ if (path === '/' || path === '/manifest.json' || path.includes('manifest')) {
   return json(res, 200, MANIFEST);
 }
 return json(res, 200, { tracks: [] });
