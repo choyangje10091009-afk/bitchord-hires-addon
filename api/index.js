@@ -5,9 +5,7 @@ const MANIFEST = {
   name: 'juanjob hi res',
   version: '1.0.0',
   resources: ['search', 'stream'],
-  // Only offer this addon while the phone has a lossless-capable output.
   checkValidLossless: 1,
-  // Downloads enabled: BitChord can save the lossless file from this addon.
   allowDownloads: 1,
   settings: [
     {
@@ -62,7 +60,7 @@ export default async function handler(req, res) {
     return json(res, 405, { error: 'method not allowed' }, { Allow: 'GET, OPTIONS' });
   }
 
-  if (path === '/' || path === '/manifest.json') {
+  if (path === '/' || path === '/manifest.json' || path.includes('manifest')) {
     return json(res, 200, MANIFEST);
   }
 
@@ -97,8 +95,5 @@ export default async function handler(req, res) {
     return json(res, 200, stream);
   }
 
- if (path === '/' || path === '/manifest.json' || path.includes('manifest')) {
-  return json(res, 200, MANIFEST);
-}
-return json(res, 200, { tracks: [] });
+  return json(res, 200, { tracks: [] });
 }
