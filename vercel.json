@@ -7,6 +7,10 @@
       "destination": "/api/index.js?__route=manifest"
     },
     {
+      "source": "/manifest.json",
+      "destination": "/api/index.js?__route=manifest"
+    },
+    {
       "source": "/health",
       "destination": "/api/index.js?__route=health"
     },
