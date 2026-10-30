@@ -1,7 +1,9 @@
 {
   "version": 2,
-  "routes": [
-    { "src": "^/manifest\\.json$", "dest": "/manifest.json" },
-    { "src": "/(.*)", "dest": "/api/index.js" }
+  "rewrites": [
+    { "source": "/", "destination": "/api/index.js" },
+    { "source": "/health", "destination": "/api/index.js" },
+    { "source": "/search", "destination": "/api/index.js" },
+    { "source": "/stream/:id", "destination": "/api/index.js" }
   ]
 }

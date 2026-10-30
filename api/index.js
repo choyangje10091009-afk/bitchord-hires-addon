@@ -60,7 +60,7 @@ export default async function handler(req, res) {
     return json(res, 405, { error: 'method not allowed' }, { Allow: 'GET, OPTIONS' });
   }
 
-  if (path === '/' || path === '/manifest.json' || path.includes('manifest')) {
+  if (path === '/' || path === '/manifest.json') {
     return json(res, 200, MANIFEST);
   }
 
@@ -95,5 +95,5 @@ export default async function handler(req, res) {
     return json(res, 200, stream);
   }
 
-  return json(res, 200, { tracks: [] });
+  return json(res, 404, { error: 'unknown endpoint', path });
 }
