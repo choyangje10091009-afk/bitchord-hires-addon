@@ -1,0 +1,8 @@
+{
+  "id": "dev.akira.bitchord-hires",
+  "name": "juanjob hi res",
+  "version": "1.0.0",
+  "resources": ["search", "stream"],
+  "checkValidLossless": 1,
+  "allowDownloads": 1
+}
