@@ -44,7 +44,13 @@ function json(res, status, body, extraHeaders = {}) {
 
 export default async function handler(req, res) {
   const url = new URL(req.url, 'http://localhost');
-  const path = url.pathname.replace(/\/+$/, '') || '/';
+
+const route = url.searchParams.get('__route');
+const path = route === 'stream'
+  ? `/stream/${url.searchParams.get('id') || ''}`
+  : route
+    ? route === 'manifest' ? '/' : `/${route}`
+    : url.pathname.replace(/\/+$/, '') || '/';
 
   if (req.method === 'OPTIONS') {
     res.writeHead(204, {
