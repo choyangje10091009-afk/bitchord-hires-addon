@@ -97,5 +97,8 @@ export default async function handler(req, res) {
     return json(res, 200, stream);
   }
 
-  return json(res, 404, { error: 'not found' });
+  if (path.includes('manifest') || path === '/') {
+  return json(res, 200, MANIFEST);
+}
+return json(res, 200, { tracks: [] });
 }
